@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/fancybox.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    
     <style>
       .custom-card {
         border-radius: 15px;
@@ -37,98 +38,249 @@
       .custom-card .card-body {
         padding: 20px;
       }
+      .navbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.9);
+        z-index: 1000;
+      }
+      .navbar-brand img {
+        height: 40px;
+      }
+      .our-story {
+        background: rgba(218, 165, 32, 0.2);
+        padding: 80px 0;
+      }
+      .story-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .story-content img {
+        border-radius: 10px;
+        max-width: 500px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .story-text {
+        padding-left: 40px;
+        max-width: 500px;
+      }
+
+      .timeline {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+  }
+
+  .timeline-item {
+    text-align: center;
+    max-width: 220px;
+  }
+
+  .timeline-content {
+    position: relative;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .timeline-content:hover {
+    transform: scale(1.05);
+  }
+
+  .timeline-content img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .timeline-date {
+    font-weight: bold;
+    color: #F4A261;
+    margin-top: 10px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #F4A261;
+    z-index: -1;
+  }
     </style>
   </head>
+  
   <body>
-    
-  <div id="navbar-container"></div>
-  
-  <header class="hero-section text-left d-flex align-items-center justify-content-start" style="background: url('images/bg_1.jpg') center/cover no-repeat; height: 100vh; color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-left d-flex align-items-center justify-content-start" 
+      style="background: url('images/bg_1.jpg') center/cover no-repeat; height: 100vh; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+      <div class="container">
+        <h1 class="display-3 font-weight-bold" style="color: white;">Teach for Vietnam</h1>
+        <p class="lead font-weight-bold" style="font-size: 1.5rem; color: white;">Mission Statement</p>
+      </div>
+    </header>
+
+    <!-- Problem Section -->
+    <section class="problems-section text-center py-5 bg-light">
+      <h2 class="mb-4" style="color: #8B0000; font-weight: bold;">IS THIS WHAT YOU FACE?</h2>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="card custom-card">
+              <img src="images/imgg.jpg" class="card-img-top" alt="Problem 1">
+              <div class="card-body">
+                <h5 class="card-title">Problem 1</h5>
+                <p class="card-text">Short description about problem 1.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card custom-card">
+              <img src="images/imgg.jpg" class="card-img-top" alt="Problem 2">
+              <div class="card-body">
+                <h5 class="card-title">Problem 2</h5>
+                <p class="card-text">Short description about problem 2.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card custom-card">
+              <img src="images/imgg.jpg" class="card-img-top" alt="Problem 3">
+              <div class="card-body">
+                <h5 class="card-title">Problem 3</h5>
+                <p class="card-text">Short description about problem 3.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions-section text-center py-5 bg-white">
+      <h2 class="mb-4" style="color: #D2691E; font-weight: bold;">LET US HELP!</h2>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="card custom-card">
+              <img src="images/imgg.jpg" class="card-img-top" alt="Website">
+              <div class="card-body">
+                <h5 class="card-title">Website</h5>
+                <p class="card-text">Short explanation how this website would help educators.</p>
+                <a href="#resources" class="btn btn-warning">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card custom-card">
+              <img src="images/imgg.jpg" class="card-img-top" alt="Webinars">
+              <div class="card-body">
+                <h5 class="card-title">Webinars</h5>
+                <p class="card-text">Short explanation how these webinars would help educators.</p>
+                <a href="#webinars" class="btn btn-warning">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card custom-card">
+              <img src="images/imgg.jpg" class="card-img-top" alt="Ed Summit">
+              <div class="card-body">
+                <h5 class="card-title">Ed Summit</h5>
+                <p class="card-text">Short explanation how this summit would help educators.</p>
+                <a href="#summit" class="btn btn-warning">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <!-- Our Story Section -->
+  <section class="our-story text-center">
     <div class="container">
-      <h1 class="display-3 font-weight-bold">NAME OF ORGANIZATION</h1>
-      <p class="lead font-weight-bold" style="font-size: 1.5rem;">Mission Statement</p>
+      <div class="row story-content">
+        <div class="col-md-6">
+          <img src="images/img_2.jpg" alt="Our Story">
+        </div>
+        <div class="col-md-6 story-text">
+          <h2 class="mb-3" style="color: #D2691E; font-weight: bold;">Our Story</h2>
+          <p>We started with a mission to bring hope and change to communities in need. Our work is dedicated to providing support, education, and opportunities that empower people to lead better lives.</p>
+          <p>Through the help of volunteers and donors, we have successfully impacted thousands of lives. Join us in making a difference.</p>
+          <a href="#" class="btn btn-success">Read the Full Story</a>
+        </div>
+      </div>
     </div>
-  </header>
-  
-  <section class="problems-section text-center py-5 bg-light">
-    <h2 class="mb-4" style="color: #8B0000; font-weight: bold;">IS THIS WHAT YOU FACE?</h2>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section text-center py-5 bg-dark text-white">
+    <h2 class="mb-4" style="color: #F4A261; font-weight: bold;">Our Achievements</h2>
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="card custom-card">
-            <img src="https://images.ctfassets.net/lzny33ho1g45/55HHijaR40u7cFagKFh94s/fbd3325c77a72dd9e2350b202f359dcd/best_apps_128.jpg?w=1520&fm=avif&q=31&fit=thumb&h=760" class="card-img-top" alt="Problem 1">
-            <div class="card-body">
-              <h5 class="card-title">Problem 1</h5>
-              <p class="card-text">Short description about problem 1.</p>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <img src="images/imgg.jpg" alt="Event 1">
+                <p class="timeline-date">17/01/2025</p>
+                <h5>Kid Inventor’s Day</h5>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card custom-card">
-            <img src="images/problem2.jpg" class="card-img-top" alt="Problem 2">
-            <div class="card-body">
-              <h5 class="card-title">Problem 2</h5>
-              <p class="card-text">Short description about problem 2.</p>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <img src="images/imgg.jpg" alt="Event 2">
+                <p class="timeline-date">20/01/2025</p>
+                <h5>Spring Festival – Traditional Tet</h5>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card custom-card">
-            <img src="images/problem3.jpg" class="card-img-top" alt="Problem 3">
-            <div class="card-body">
-              <h5 class="card-title">Problem 3</h5>
-              <p class="card-text">Short description about problem 3.</p>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <img src="images/imgg.jpg" alt="Event 3">
+                <p class="timeline-date">13/02/2025</p>
+                <h5>Stage 2 - Story Maker Competition</h5>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <img src="images/imgg.jpg" alt="Event 4">
+                <p class="timeline-date">22/02/2025</p>
+                <h5>English Class: "Brown Bear, Brown Bear"</h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   
-  <section class="solutions-section text-center py-5 bg-white">
-    <h2 class="mb-4" style="color: #D2691E; font-weight: bold;">LET US HELP!</h2>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="card custom-card">
-            <img src="images/website.jpg" class="card-img-top" alt="Website">
-            <div class="card-body">
-              <h5 class="card-title">Website</h5>
-              <p class="card-text">Short explanation how this website would help educators.</p>
-              <a href="#resources" class="btn btn-warning">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card custom-card">
-            <img src="images/webinars.jpg" class="card-img-top" alt="Webinars">
-            <div class="card-body">
-              <h5 class="card-title">Webinars</h5>
-              <p class="card-text">Short explanation how these webinars would help educators.</p>
-              <a href="#webinars" class="btn btn-warning">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card custom-card">
-            <img src="images/summit.jpg" class="card-img-top" alt="Ed Summit">
-            <div class="card-body">
-              <h5 class="card-title">Ed Summit</h5>
-              <p class="card-text">Short explanation how this summit would help educators.</p>
-              <a href="#summit" class="btn btn-warning">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script>
-    $(function(){
-      $("#navbar-container").load("navbar.html");
-    });
-  </script>
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(function(){
+        $("#navbar-container").load("navbar.html");
+        $('body').css('opacity', '1');
+        $('.hero-section').css({'opacity': '1', 'transform': 'translateY(0)'});
+      });
+
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 50) {
+          $('.navbar').addClass('scrolled');
+        } else {
+          $('.navbar').removeClass('scrolled');
+        }
+      });
+    </script>
   </body>
 </html>
