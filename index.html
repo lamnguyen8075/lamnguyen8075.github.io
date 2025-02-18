@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GiveHope &mdash; Website Template by Colorlib</title>
+    <title>Teach for Vietnam</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700" rel="stylesheet">
@@ -94,17 +94,48 @@
 }
 
 /* ------------------------------- NAVBAR STYLES ------------------------------- */
+/* Transparent Navbar */
 .navbar {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.9);
-  z-index: 1000;
+  background: transparent; /* Make it transparent */
+  z-index: 1050;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
 }
 
-.navbar-brand img {
-  height: 40px;
+/* Navbar When Scrolled */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95); /* Adds white background on scroll */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Links */
+.nav-link {
+  color: #fff !important; /* White links on transparent background */
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Change link color when navbar gets scrolled */
+.navbar.scrolled .nav-link {
+  color: #333 !important; /* Dark text when scrolled */
+}
+
+/* Hover Effect */
+.nav-link:hover {
+  color: #D2691E !important; /* Accent color on hover */
+}
+
+/* Navbar Toggle Icon */
+.navbar-toggler-icon {
+  filter: invert(100%); /* Makes the toggle icon visible on transparent background */
+}
+
+/* Change Toggle Icon Color When Scrolled */
+.navbar.scrolled .navbar-toggler-icon {
+  filter: invert(0%); /* Darken the icon when navbar gets scrolled */
 }
 
 /* ------------------------------- OUR STORY SECTION ------------------------------- */
@@ -335,16 +366,42 @@ h4 {
   </head>
   
   <body>
-    <div id="navbar-container"></div>
+<!-- Navbar Section -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <!-- Logo on the left -->
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.jpg" alt="" height="50">
+    </a>
 
-    <!-- Hero Section -->
-    <header class="hero-section text-left d-flex align-items-center justify-content-start" 
-      style="background: url('images/bg_1.jpg') center/cover no-repeat; height: 100vh; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
-      <div class="container">
-        <h1 class="display-3 font-weight-bold" style="color: white;">Teach for Vietnam</h1>
-        <p class="lead font-weight-bold" style="font-size: 1.5rem; color: white;">Mission Statement</p>
-      </div>
-    </header>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link font-weight-bold">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link font-weight-bold">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link font-weight-bold">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero-section text-left d-flex align-items-center justify-content-start" 
+  style="background: url('images/bg_1.jpg') center/cover no-repeat; height: 100vh; text-shadow: 2px 2px 8px rgba(0,0,0,0.6);">
+  <div class="container">
+    <h1 class="display-3 font-weight-bold" style="color: white;">Teach for Vietnam</h1>
+    <p class="lead font-weight-bold" style="font-size: 1.5rem; color: white;">Mission Statement</p>
+  </div>
+</header>
+
 
   <!-- Problem Section -->
   <section class="problems-section text-center py-5 bg-light">
@@ -475,7 +532,7 @@ h4 {
         <!-- Logo -->
         <div class="col-md-4 mb-4">
           <div class="footer-logo">
-            <img src="images/logo.png" alt="Organization Logo" style="max-width: 200px;">
+            <img src="images/logo.jpg" alt="Organization Logo" style="max-width: 200px;">
           </div>
         </div>
 
@@ -536,7 +593,7 @@ h4 {
         $('.hero-section').css({'opacity': '1', 'transform': 'translateY(0)'});
       });
 
-      $(window).scroll(function() {
+      $(window).scroll(function () {
         if ($(this).scrollTop() > 50) {
           $('.navbar').addClass('scrolled');
         } else {

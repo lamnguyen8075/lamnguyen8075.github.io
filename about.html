@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GiveHope &mdash; Website Template by Colorlib</title>
+    <title>Teach for Vietnam</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,500|Dosis:400,700" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -18,284 +17,737 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/fancybox.min.css">
-
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-
-  </head>
-  <body>
     
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">GiveHope</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
+<style>
+/* ------------------------------- CUSTOM CARD STYLES ------------------------------- */
+.custom-card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  min-height: 300px;
+}
 
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="how-it-works.html" class="nav-link">How It Works</a></li>
-          <li class="nav-item"><a href="donate.html" class="nav-link">Donate</a></li>
-          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-          <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- END nav -->
-  
-  
-  <div class="block-31" style="position: relative;">
-    <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 text-center">
-              <h2 class="heading">About The Organization</h2>
-            </div>
-          </div>
-        </div>
-      </div>
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+
+.custom-card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.custom-card:hover img {
+  transform: scale(1.1);
+}
+
+.custom-card .card-body {
+  padding: 20px;
+}
+
+/* ------------------------------- CARD HOVER OVERLAY ------------------------------- */
+.custom-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-card:hover::after {
+  opacity: 1;
+}
+
+/* ------------------------------- CARD CONTENT ON HOVER ------------------------------- */
+.custom-card .hover-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.custom-card:hover .hover-content {
+  opacity: 1;
+}
+
+.hover-content h5 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.hover-content p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ------------------------------- NAVBAR STYLES ------------------------------- */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.98); /* Dark semi-transparent background for visibility */
+  z-index: 1050;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Change navbar to solid color when scrolled */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar links: Default white for visibility */
+.nav-link {
+  color: #1b0303 !important;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Change navbar text to dark when scrolling */
+.navbar.scrolled .nav-link {
+  color: #333 !important;
+}
+
+/* Navbar Toggle Icon */
+.navbar-toggler-icon {
+  filter: invert(100%);
+}
+
+/* Change toggle icon to dark when scrolled */
+.navbar.scrolled .navbar-toggler-icon {
+  filter: invert(0%);
+}
+
+
+/* ------------------------------- OUR STORY SECTION ------------------------------- */
+.our-story {
+  background: rgba(218, 165, 32, 0.2);
+  padding: 80px 0;
+}
+
+.story-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-content img {
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.story-text {
+  padding-left: 40px;
+  max-width: 500px;
+}
+
+/* ------------------------------- TIMELINE STYLES ------------------------------- */
+.timeline {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-item {
+  text-align: center;
+  max-width: 220px;
+}
+
+.timeline-content {
+  position: relative;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.timeline-content:hover {
+  transform: scale(1.05);
+}
+
+.timeline-content img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #F4A261;
+  margin-top: 10px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #F4A261;
+  z-index: -1;
+}
+
+/* ------------------------------- UPDATES SECTION ------------------------------- */
+.updates-section {
+  background-color: #fdf8f1;
+  padding: 80px 0;
+}
+
+.section-title {
+  color: #d2691e;
+  font-weight: bold;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.updates-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 30px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ------------------------------- UPDATE ITEM STYLES ------------------------------- */
+.update {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.update:hover {
+  transform: translateY(-3px);
+}
+
+.update-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d2691e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.update-content {
+  flex: 1;
+}
+
+.update-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.update-desc {
+  font-size: 15px;
+  color: #666;
+}
+
+/* ------------------------------- ANIMATION STYLES ------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------- FOOTER STYLES ------------------------------- */
+.footer-section {
+  background: #f8f9fa;
+  padding: 60px 0;
+}
+
+.footer-logo img {
+  max-width: 200px;
+}
+
+h4 {
+  color: #D2691E;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding: 0;
+}
+
+.list-unstyled li {
+  margin-bottom: 10px;
+}
+
+.list-unstyled li a {
+  color: #666;
+  text-decoration: none;
+}
+
+.list-unstyled li a:hover {
+  color: #D2691E;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #666;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #D2691E;
+}
+
+.copyright {
+  color: #666;
+  margin: 20px 0;
+}
+
+.legal {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.legal a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal a:hover {
+  color: #D2691E;
+}
+
+/* -------------------- TEAM SECTION STYLES -------------------- */
+
+/* -------------------- REDUCE SPACE BETWEEN TITLE & SLIDER -------------------- */
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #D2691E;
+  text-align: center;
+  margin-bottom: 10px; /* Reduced from 20px to 10px */
+}
+
+/* -------------------- REDUCE SPACE BETWEEN SECTIONS -------------------- */
+.section-wrapper {
+  padding: 10px 0; /* Reduced from 60px to 50px for better balance */
+  margin: 0 auto;
+  max-width: 1100px; /* Keeps sections framed */
+}
+
+/* -------------------- FRAME THE SLIDER -------------------- */
+.team-slider {
+  max-width: 900px; /* Keep the slider within a fixed width */
+  margin: 0 auto; /* Center it properly */
+  padding: 5px; /* Reduce extra spacing */
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* -------------------- CUSTOMIZE NAVIGATION ARROWS -------------------- */
+.owl-nav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  padding: 0 50px; /* Add left/right margin */
+}
+
+.owl-prev, .owl-next {
+  background: #D2691E !important;
+  color: white !important;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.owl-prev:hover, .owl-next:hover {
+  background: #8B0000 !important;
+}
+/* -------------------- SPACING & WRAPPER FOR SECTIONS -------------------- */
+.team-section {
+  background-color: #fdf8f1;
+  padding: 100px 0; /* Increase padding for better spacing */
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #D2691E;
+  text-align: center;
+  margin-bottom: 50px; /* Increase space below titles */
+}
+
+/* Wrapper to separate sections */
+.section-wrapper {
+  padding: 80px 0; /* More space above and below each section */
+}
+
+/* -------------------- TEAM CARDS STYLING -------------------- */
+.team-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+}
+
+.team-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.team-info {
+  padding-top: 15px;
+}
+
+.team-info h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.team-info p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* -------------------- CUSTOM OWL CAROUSEL NAVIGATION ARROWS -------------------- */
+.owl-nav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.owl-prev, .owl-next {
+  background: #D2691E !important;
+  color: white !important;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.owl-prev {
+  position: absolute;
+  left: -60px;
+}
+
+.owl-next {
+  position: absolute;
+  right: -60px;
+}
+
+.owl-prev:hover, .owl-next:hover {
+  background: #8B0000 !important;
+}
+
+
+</style>
+
+
       
-    </div>
-  </div>
+  </head>
   
-  <div class="site-section mb-5">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-12 mb-5"><h1>Our History</h1></div>
-        <div class="col-md-6">
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus officiis facere nisi et, ut adipisci a quis quisquam vitae doloremque tempora repellat quae accusantium atque eum voluptatibus aperiam cumque.</p>
-            <p>Quia ratione, eum harum ab similique mollitia, nisi itaque vel voluptas ipsam dolore perferendis. Deleniti voluptatum error possimus ipsum, sed, obcaecati. Sit unde quia eum repudiandae molestiae reprehenderit harum nesciunt.</p>
-            
-          </div>
-          <div class="col-md-6">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, necessitatibus officiis facere nisi et, ut adipisci a quis quisquam vitae doloremque tempora repellat quae accusantium atque eum voluptatibus aperiam cumque.</p>
-            <p>Quia ratione, eum harum ab similique mollitia, nisi itaque vel voluptas ipsam dolore perferendis. Deleniti voluptatum error possimus ipsum, sed, obcaecati. Sit unde quia eum repudiandae molestiae reprehenderit harum nesciunt.</p>
-          </div>
-      </div>
-      
-      <div class="row mt-5">
-        <div class="col-md-12 mb-5 text-center mt-5">
-          <h2>Leadership</h2>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-38 text-center">
-            <div class="block-38-img">
-              <div class="block-38-header">
-                <img src="images/person_1.jpg" alt="Image placeholder">
-                <h3 class="block-38-heading">Greeg Graham</h3>
-                <p class="block-38-subheading">CEO</p>
-              </div>
-              <div class="block-38-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-38 text-center">
-            <div class="block-38-img">
-              <div class="block-38-header">
-                <img src="images/person_2.jpg" alt="Image placeholder">
-                <h3 class="block-38-heading">Jennifer Greive</h3>
-                <p class="block-38-subheading">President</p>
-              </div>
-              <div class="block-38-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-38 text-center">
-            <div class="block-38-img">
-              <div class="block-38-header">
-                <img src="images/person_3.jpg" alt="Image placeholder">
-                <h3 class="block-38-heading">Patrick Marx</h3>
-                <p class="block-38-subheading">Marketer</p>
-              </div>
-              <div class="block-38-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="block-38 text-center">
-            <div class="block-38-img">
-              <div class="block-38-header">
-                <img src="images/person_4.jpg" alt="Image placeholder">
-                <h3 class="block-38-heading">Mike Coolbert</h3>
-                <p class="block-38-subheading">Partner</p>
-              </div>
-              <div class="block-38-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <body>
+<!-- Navbar Section -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <!-- Logo on the left -->
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.jpg" alt="" height="50">
+    </a>
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link font-weight-bold">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link font-weight-bold">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link font-weight-bold">Contact</a>
+        </li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <div class="site-section">
-    <div class="container">
-      <div class="block-31 mb-5" style="position: relative;">
-          <div class="owl-carousel loop-block-31">
-            <div class="block-30 no-overlay item" style="background-image: url('images/bg_2.jpg');"></div>
-            <div class="block-30 no-overlay item" style="background-image: url('images/bg_1.jpg');"></div>
-            <div class="block-30 no-overlay item" style="background-image: url('images/bg_3.jpg');"></div>
-          </div>
-        </div>
+
+<!-- Team Sections -->
+
+
+<!-- Get to Know Our Team -->
+<div class="section-wrapper">
+  <h2 class="text-center section-title">Get to Know Our Team</h2>
+  <div class="owl-carousel team-slider">
+    <div class="team-card">
+      <img src="images/person_1.jpg" alt="Member 1">
+      <div class="team-info">
+        <h5>John Doe</h5>
+        <p>CEO & Founder</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="images/person_2.jpg" alt="Member 2">
+      <div class="team-info">
+        <h5>Jane Smith</h5>
+        <p>COO</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="images/person_3.jpg" alt="Member 3">
+      <div class="team-info">
+        <h5>Mark Johnson</h5>
+        <p>CTO</p>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="site-section border-top">
+<!-- Our Board of Trustees -->
+<div class="section-wrapper">
+  <h2 class="text-center section-title">Our Board of Trustees</h2>
+  <div class="owl-carousel team-slider">
+    <div class="team-card">
+      <img src="images/person_2.jpg" alt="Trustee 1">
+      <div class="team-info">
+        <h5>Maria Lopez</h5>
+        <p>Community Leader</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="images/person_1.jpg" alt="Trustee 2">
+      <div class="team-info">
+        <h5>James Anderson</h5>
+        <p>Financial Advisor</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="images/person_3.jpg" alt="Trustee 3">
+      <div class="team-info">
+        <h5>Patricia White</h5>
+        <p>Education Specialist</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Our Board of Advisors -->
+<div class="section-wrapper">
+  <h2 class="text-center section-title">Our Board of Advisors</h2>
+  <div class="owl-carousel team-slider">
+    <div class="team-card">
+      <img src="images/person_1.jpg" alt="Volunteer 1">
+      <div class="team-info">
+        <h5>Emily Watson</h5>
+        <p>Community Outreach</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="images/person_2.jpg" alt="Volunteer 2">
+      <div class="team-info">
+        <h5>Michael Lee</h5>
+        <p>Event Coordinator</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="images/person_3.jpg" alt="Volunteer 3">
+      <div class="team-info">
+        <h5>Sarah Johnson</h5>
+        <p>Field Volunteer</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
     <div class="container">
       <div class="row">
-
-        <div class="col-md-4">
-          <div class="media block-6">
-            <div class="icon"><span class="ion-ios-bulb"></span></div>
-            <div class="media-body">
-              <h3 class="heading">Our Mission</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
-            </div>
-          </div>     
+        <!-- Logo -->
+        <div class="col-md-4 mb-4">
+          <div class="footer-logo">
+            <img src="images/logo.jpg" alt="Organization Logo" style="max-width: 200px;">
+          </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="media block-6">
-            <div class="icon"><span class="ion-ios-cash"></span></div>
-            <div class="media-body">
-              <h3 class="heading">Make Donations</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
-            </div>
-          </div>  
+        <!-- Navigation Links -->
+        <div class="col-md-2 mb-4">
+          <h4>Quick Links</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
         </div>
 
-        <div class="col-md-4">
-          <div class="media block-6">
-            <div class="icon"><span class="ion-ios-contacts"></span></div>
-            <div class="media-body">
-              <h3 class="heading">We Need Volunteers</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
-            </div>
-          </div> 
+        <!-- Follow Us -->
+        <div class="col-md-2 mb-4">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+          </div>
         </div>
 
+        <!-- Contact Information -->
+        <div class="col-md-4 mb-4">
+          <h4>Contact Us</h4>
+          <p><i class="fa fa-map-marker"></i> 123 Charity Street, Hope City, VN</p>
+          <p><i class="fa fa-phone"></i> +84 123 456 789</p>
+          <p><i class="fa fa-envelope"></i> info@teachforvietnam.org</p>
+        </div>
       </div>
-    </div>
-  </div> <!-- .site-section -->
-  
-  <footer class="footer">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-6 col-lg-4">
-          <h3 class="heading-section">About Us</h3>
-          <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-          <p class="mb-5">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          <p><a href="#" class="link-underline">Read  More</a></p>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <h3 class="heading-section">Recent Blog</h3>
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_1.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Water Is Life. Clean Water In Urban Area</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
 
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_2.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Life Is Short So Be Kind</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_4.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Unfortunate Children Need Your Love</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="block-23">
-            <h3 class="heading-section">Get Connected</h3>
-              <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-              </ul>
-            </div>
-        </div>
-        
-        
-      </div>
-      <div class="row pt-5">
-        <div class="col-md-12 text-center">
-          <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ion-ios-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
+      <!-- Copyright and Legal -->
+      <div class="row text-center">
+        <div class="col-md-12">
+          <p class="copyright">
+            <span style="color: #D2691E;">&copy;</span> 2023 Teach for Vietnam. All rights reserved.
+          </p>
+          <p class="legal">
+            <a href="#" style="color: #D2691E;">Terms of Use</a> | 
+            <a href="#" style="color: #D2691E;">Privacy Policy</a>
+          </p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+      $(function(){
+        $("#navbar-container").load("navbar.html");
+        $('body').css('opacity', '1');
+        $('.hero-section').css({'opacity': '1', 'transform': 'translateY(0)'});
+      });
+
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+          $('.navbar').addClass('scrolled');
+        } else {
+          $('.navbar').removeClass('scrolled');
+        }
+      });
 
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
 
-  <script src="js/jquery.fancybox.min.js"></script>
-  
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-    
+      $(document).ready(function(){
+      $(".team-slider").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: false,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        navText: ["<div class='owl-prev'>&#10094;</div>", "<div class='owl-next'>&#10095;</div>"], /* Left and Right Arrows */
+        responsive:{
+          0:{
+            items: 1  /* Show 1 card on small screens */
+          },
+          768:{
+            items: 2  /* Show 2 cards on tablets */
+          },
+          1024:{
+            items: 3  /* Show 3 cards on larger screens */
+          }
+        }
+      });
+    });
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 50) {
+        $('.navbar').addClass('scrolled');
+      } else {
+        $('.navbar').removeClass('scrolled');
+      }
+    });
+    </script>
   </body>
 </html>
