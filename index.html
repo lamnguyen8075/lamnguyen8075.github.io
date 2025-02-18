@@ -20,101 +20,318 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     
-    <style>
-      .custom-card {
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-      }
-      .custom-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
-      }
-      .custom-card img {
-        height: 200px;
-        object-fit: cover;
-      }
-      .custom-card .card-body {
-        padding: 20px;
-      }
-      .navbar {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background: rgba(255, 255, 255, 0.9);
-        z-index: 1000;
-      }
-      .navbar-brand img {
-        height: 40px;
-      }
-      .our-story {
-        background: rgba(218, 165, 32, 0.2);
-        padding: 80px 0;
-      }
-      .story-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .story-content img {
-        border-radius: 10px;
-        max-width: 500px;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-      }
-      .story-text {
-        padding-left: 40px;
-        max-width: 500px;
-      }
+<style>
+/* ------------------------------- CUSTOM CARD STYLES ------------------------------- */
+.custom-card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  min-height: 300px;
+}
 
-      .timeline {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-  }
+.custom-card:hover {
+  transform: translateY(-5px);
+}
 
-  .timeline-item {
-    text-align: center;
-    max-width: 220px;
-  }
+.custom-card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
 
-  .timeline-content {
-    position: relative;
-    padding: 10px;
-    transition: all 0.3s ease-in-out;
-  }
+.custom-card:hover img {
+  transform: scale(1.1);
+}
 
-  .timeline-content:hover {
-    transform: scale(1.05);
-  }
+.custom-card .card-body {
+  padding: 20px;
+}
 
-  .timeline-content img {
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  }
+/* ------------------------------- CARD HOVER OVERLAY ------------------------------- */
+.custom-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
 
-  .timeline-date {
-    font-weight: bold;
-    color: #F4A261;
-    margin-top: 10px;
-  }
+.custom-card:hover::after {
+  opacity: 1;
+}
 
-  .timeline::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: #F4A261;
-    z-index: -1;
+/* ------------------------------- CARD CONTENT ON HOVER ------------------------------- */
+.custom-card .hover-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.custom-card:hover .hover-content {
+  opacity: 1;
+}
+
+.hover-content h5 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.hover-content p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ------------------------------- NAVBAR STYLES ------------------------------- */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 1000;
+}
+
+.navbar-brand img {
+  height: 40px;
+}
+
+/* ------------------------------- OUR STORY SECTION ------------------------------- */
+.our-story {
+  background: rgba(218, 165, 32, 0.2);
+  padding: 80px 0;
+}
+
+.story-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-content img {
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.story-text {
+  padding-left: 40px;
+  max-width: 500px;
+}
+
+/* ------------------------------- TIMELINE STYLES ------------------------------- */
+.timeline {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-item {
+  text-align: center;
+  max-width: 220px;
+}
+
+.timeline-content {
+  position: relative;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.timeline-content:hover {
+  transform: scale(1.05);
+}
+
+.timeline-content img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #F4A261;
+  margin-top: 10px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #F4A261;
+  z-index: -1;
+}
+
+/* ------------------------------- UPDATES SECTION ------------------------------- */
+.updates-section {
+  background-color: #fdf8f1;
+  padding: 80px 0;
+}
+
+.section-title {
+  color: #d2691e;
+  font-weight: bold;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.updates-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 30px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ------------------------------- UPDATE ITEM STYLES ------------------------------- */
+.update {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.update:hover {
+  transform: translateY(-3px);
+}
+
+.update-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #d2691e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.update-content {
+  flex: 1;
+}
+
+.update-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.update-desc {
+  font-size: 15px;
+  color: #666;
+}
+
+/* ------------------------------- ANIMATION STYLES ------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-    </style>
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------- FOOTER STYLES ------------------------------- */
+.footer-section {
+  background: #f8f9fa;
+  padding: 60px 0;
+}
+
+.footer-logo img {
+  max-width: 200px;
+}
+
+h4 {
+  color: #D2691E;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding: 0;
+}
+
+.list-unstyled li {
+  margin-bottom: 10px;
+}
+
+.list-unstyled li a {
+  color: #666;
+  text-decoration: none;
+}
+
+.list-unstyled li a:hover {
+  color: #D2691E;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #666;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #D2691E;
+}
+
+.copyright {
+  color: #666;
+  margin: 20px 0;
+}
+
+.legal {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.legal a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.legal a:hover {
+  color: #D2691E;
+}
+</style>
+
+
+      
   </head>
   
   <body>
@@ -129,80 +346,91 @@
       </div>
     </header>
 
-    <!-- Problem Section -->
-    <section class="problems-section text-center py-5 bg-light">
-      <h2 class="mb-4" style="color: #8B0000; font-weight: bold;">IS THIS WHAT YOU FACE?</h2>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-4">
-            <div class="card custom-card">
-              <img src="images/imgg.jpg" class="card-img-top" alt="Problem 1">
-              <div class="card-body">
-                <h5 class="card-title">Problem 1</h5>
-                <p class="card-text">Short description about problem 1.</p>
-              </div>
+  <!-- Problem Section -->
+  <section class="problems-section text-center py-5 bg-light">
+    <h2 class="mb-4" style="color: #8B0000; font-weight: bold;">IS THIS WHAT YOU FACE?</h2>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card custom-card">
+            <img src="images/imgg.jpg" class="card-img-top" alt="Problem 1">
+            <div class="hover-content">
+              <h5>Research Data</h5>
+              <p>Additional information or research data about problem 1.</p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Problem 1</h5>
+              <p class="card-text">Short description about problem 1.</p>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card custom-card">
-              <img src="images/imgg.jpg" class="card-img-top" alt="Problem 2">
-              <div class="card-body">
-                <h5 class="card-title">Problem 2</h5>
-                <p class="card-text">Short description about problem 2.</p>
-              </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card custom-card">
+            <img src="images/imgg.jpg" class="card-img-top" alt="Problem 2">
+            <div class="hover-content">
+              <h5>Research Data</h5>
+              <p>Additional information or research data about problem 2.</p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Problem 2</h5>
+              <p class="card-text">Short description about problem 2.</p>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card custom-card">
-              <img src="images/imgg.jpg" class="card-img-top" alt="Problem 3">
-              <div class="card-body">
-                <h5 class="card-title">Problem 3</h5>
-                <p class="card-text">Short description about problem 3.</p>
-              </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card custom-card">
+            <img src="images/imgg.jpg" class="card-img-top" alt="Problem 3">
+            <div class="hover-content">
+              <h5>Research Data</h5>
+              <p>Additional information or research data about problem 3.</p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Problem 3</h5>
+              <p class="card-text">Short description about problem 3.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Solutions Section -->
-    <section class="solutions-section text-center py-5 bg-white">
-      <h2 class="mb-4" style="color: #D2691E; font-weight: bold;">LET US HELP!</h2>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-4">
-            <div class="card custom-card">
-              <img src="images/imgg.jpg" class="card-img-top" alt="Website">
-              <div class="card-body">
-                <h5 class="card-title">Website</h5>
-                <p class="card-text">Short explanation how this website would help educators.</p>
-                <a href="#resources" class="btn btn-warning">Learn More</a>
-              </div>
+
+  <!-- Problem Section -->
+  <section class="problems-section text-center py-5 bg-light">
+    <h2 class="mb-4" style="color: #8B0000; font-weight: bold;">We're here to provide solutions!</h2>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card custom-card">
+            <img src="images/imgg.jpg" class="card-img-top hover-zoom" alt="Problem 1">
+            <div class="card-body">
+              <h5 class="card-title">Problem 1</h5>
+              <p class="card-text">Short description about problem 1.</p>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card custom-card">
-              <img src="images/imgg.jpg" class="card-img-top" alt="Webinars">
-              <div class="card-body">
-                <h5 class="card-title">Webinars</h5>
-                <p class="card-text">Short explanation how these webinars would help educators.</p>
-                <a href="#webinars" class="btn btn-warning">Learn More</a>
-              </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card custom-card">
+            <img src="images/imgg.jpg" class="card-img-top hover-zoom" alt="Problem 2">
+            <div class="card-body">
+              <h5 class="card-title">Problem 2</h5>
+              <p class="card-text">Short description about problem 2.</p>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card custom-card">
-              <img src="images/imgg.jpg" class="card-img-top" alt="Ed Summit">
-              <div class="card-body">
-                <h5 class="card-title">Ed Summit</h5>
-                <p class="card-text">Short explanation how this summit would help educators.</p>
-                <a href="#summit" class="btn btn-warning">Learn More</a>
-              </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card custom-card">
+            <img src="images/imgg.jpg" class="card-img-top hover-zoom" alt="Problem 3">
+            <div class="card-body">
+              <h5 class="card-title">Problem 3</h5>
+              <p class="card-text">Short description about problem 3.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
 
 
   <!-- Our Story Section -->
@@ -222,48 +450,82 @@
     </div>
   </section>
 
-  <!-- Timeline Section -->
-  <section class="timeline-section text-center py-5 bg-dark text-white">
-    <h2 class="mb-4" style="color: #F4A261; font-weight: bold;">Our Achievements</h2>
+    <!-- Updates Section -->
+    <section class="updates-section py-5">
+      <div class="container">
+          <h2 class="text-center mb-4 section-title">🔔 Latest Updates</h2>
+          
+          <div class="updates-container">
+              <div class="update">
+                  <div class="update-icon">🤝</div>
+                  <div class="update-content">
+                      <div class="update-title">MOU Signed with UNICEF</div>
+                      <div class="update-desc">Today, we signed an MOU with UNICEF to enhance educational programs for underprivileged children.</div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <img src="images/imgg.jpg" alt="Event 1">
-                <p class="timeline-date">17/01/2025</p>
-                <h5>Kid Inventor’s Day</h5>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <img src="images/imgg.jpg" alt="Event 2">
-                <p class="timeline-date">20/01/2025</p>
-                <h5>Spring Festival – Traditional Tet</h5>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <img src="images/imgg.jpg" alt="Event 3">
-                <p class="timeline-date">13/02/2025</p>
-                <h5>Stage 2 - Story Maker Competition</h5>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <img src="images/imgg.jpg" alt="Event 4">
-                <p class="timeline-date">22/02/2025</p>
-                <h5>English Class: "Brown Bear, Brown Bear"</h5>
-              </div>
-            </div>
+        <!-- Logo -->
+        <div class="col-md-4 mb-4">
+          <div class="footer-logo">
+            <img src="images/logo.png" alt="Organization Logo" style="max-width: 200px;">
           </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="col-md-2 mb-4">
+          <h4>Quick Links</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+
+        <!-- Follow Us -->
+        <div class="col-md-2 mb-4">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="col-md-4 mb-4">
+          <h4>Contact Us</h4>
+          <p><i class="fa fa-map-marker"></i> 123 Charity Street, Hope City, VN</p>
+          <p><i class="fa fa-phone"></i> +84 123 456 789</p>
+          <p><i class="fa fa-envelope"></i> info@teachforvietnam.org</p>
+        </div>
+      </div>
+
+      <!-- Copyright and Legal -->
+      <div class="row text-center">
+        <div class="col-md-12">
+          <p class="copyright">
+            <span style="color: #D2691E;">&copy;</span> 2023 Teach for Vietnam. All rights reserved.
+          </p>
+          <p class="legal">
+            <a href="#" style="color: #D2691E;">Terms of Use</a> | 
+            <a href="#" style="color: #D2691E;">Privacy Policy</a>
+          </p>
         </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  
     <!-- Scripts -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
